@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     private MovementComponent movementComponent;
     private CollisionComponent collisionComponent;
-    public Stats[] stats = new Stats[2];
+    public Stats mana;
     private WeaponType currentWeaponType = WeaponType.Melee;
 
 
@@ -12,9 +12,8 @@ public class PlayerController : MonoBehaviour
     {
         movementComponent = GetComponent<MovementComponent>();
         collisionComponent = GetComponent<CollisionComponent>();
-        stats[0] = new Stats("Health", 50f);
-        stats[1] = new Stats("Mana", 50f);
-        Debug.Log(stats[0].statName + ": " + stats[0].MaxAmount);
+        mana = new Stats("Mana", 100f);
+        Debug.Log(mana.statName + ": " + mana.maxAmount);
         Debug.Log((int)currentWeaponType);
     }
 
@@ -31,6 +30,10 @@ public class PlayerController : MonoBehaviour
             {
                 movementComponent.Jump();
             }
+        }
+        if (mana.currentAmount < mana.maxAmount)
+        {
+            mana.RegenerateStat();
         }
     }
 

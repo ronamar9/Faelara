@@ -2,36 +2,30 @@ using UnityEngine;
 public class Stats
 {
     public string statName;
-    private float maxAmount;
-    private float currentAmount;
+    public float maxAmount { get; private set; }
+    public float currentAmount { get; private set; }
+    private float regenarationRate;
+
     public Stats(string statName, float maxAmount)
     {
         this.statName = statName;
         this.maxAmount = maxAmount;
     }
 
-    public float CurrentAmount
-    {
-        get { return currentAmount; }
-        set
-        {
-            currentAmount = Mathf.Clamp(value, 0, maxAmount);
-        }
-    }
-
-    public float MaxAmount
-    {
-        get { return maxAmount; }
-    }
-
     public void Modify(float amount)
     {
-        CurrentAmount += amount;
+        currentAmount += amount;
     }
 
     public void Upgrade(float extraMaxAmount)
     {
         maxAmount += extraMaxAmount;
         currentAmount = maxAmount;
+    }
+
+    public void RegenerateStat()
+    {
+        currentAmount += (regenarationRate * Time.deltaTime);
+        currentAmount = Mathf.Min(currentAmount, maxAmount);
     }
 }

@@ -7,14 +7,14 @@ public class ShapeShift : MonoBehaviour
     public int currentShapeIndex;
     public int currentActiveShape;
     private SpriteRenderer sr;
-    private ShapeTypes Shape = ShapeTypes.HumanForm;
-
+    private ShapeTypes Shape;
 
     private void Start()
     {
         currentShapeIndex = 0;
         currentActiveShape = currentShapeIndex;
         sr = GetComponent<SpriteRenderer>();
+        Shape = ShapeTypes.HumanForm;
     }
 
     void Update()
