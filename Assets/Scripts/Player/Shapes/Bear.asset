@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3dc84a89d68e934e9e68e5f7d991694, type: 3}
+  m_Name: Bear
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: d084eba22b1c48346a849770d4eb95d5, type: 3}
+  moveSpeed: 0
+  animatorController: {fileID: 9100000, guid: f52b4c85622dd4f4b9e17c4d8fd79d2e, type: 2}
+  canFly: 0
+  colliderSize: {x: 0, y: -0.16}
+  colliderOffset: {x: 2.27, y: 3.79}

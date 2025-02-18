@@ -4,18 +4,17 @@ public class PlayerController : MonoBehaviour
 {
     private MovementComponent movementComponent;
     private CollisionComponent collisionComponent;
+    private ShapeShift shapeShiftComponent;
     public Stats mana;
-    private WeaponType currentWeaponType = WeaponType.Melee;
 
 
     private void Start()
     {
         movementComponent = GetComponent<MovementComponent>();
         collisionComponent = GetComponent<CollisionComponent>();
+        shapeShiftComponent = GetComponent<ShapeShift>();
         mana = new Stats("Mana", 100f);
-        Debug.Log(mana.statName + ": " + mana.maxAmount);
-        Debug.Log((int)currentWeaponType);
-    }
+        Debug.Log(mana.statName + ": " + mana.maxAmount);    }
 
     private void Update()
     {
@@ -34,6 +33,12 @@ public class PlayerController : MonoBehaviour
         if (mana.currentAmount < mana.maxAmount)
         {
             mana.RegenerateStat();
+        }
+
+        if (1 == 1) //reduce mana logic
+        {
+            mana.Modify(-1);
+            print(mana.currentAmount);
         }
     }
 
