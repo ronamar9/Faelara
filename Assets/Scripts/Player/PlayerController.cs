@@ -35,11 +35,11 @@ public class PlayerController : MonoBehaviour
             mana.RegenerateStat();
         }
 
-        if (1 == 1) //reduce mana logic
+/*        if (1 == 1)
         {
             mana.Modify(-1);
             print(mana.currentAmount);
-        }
+        }*/
     }
 
 

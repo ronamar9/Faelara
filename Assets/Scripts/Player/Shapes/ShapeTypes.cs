@@ -1,7 +1,8 @@
-public enum ShapeTypes
+public enum ShapeType
 {
-    HumanForm,
-    MouseForm,
-    BearForm,
-    OwlForm,
+    Human,
+    Mouse,
+    Bear,
+    Owl,
+    Monkey
 }

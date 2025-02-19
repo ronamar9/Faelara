@@ -3,52 +3,57 @@ using UnityEngine.Events;
 
 public class ShapeShift : MonoBehaviour
 {
-    public int currentShapeIndex;
-    public int currentActiveShape;
-    private SpriteRenderer sr;
-    public Shapes normalshape;
-    public Shapes[] shapes = new Shapes[4];
-    private Animator animator;
-    private BoxCollider2D myCollider;
+    public int currentShapeIndex; // Tracks selected shape
+    public int currentActiveShape; // Tracks active shape
     public UnityEvent changeShape;
+    public ShapeType[] shapes = new ShapeType[5];
+    public GameObject[] shapeObjects; // Array to hold shape GameObjects
+
     private void Start()
     {
         currentShapeIndex = 0;
         currentActiveShape = currentShapeIndex;
-        sr = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
-        sr.sprite = shapes[currentShapeIndex].sprite;
-        myCollider = GetComponent<BoxCollider2D>();
+
+        ToggleShape(currentActiveShape); // Activate default shape at start
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && currentShapeIndex < shapes.Length - 1)
+        if (Input.GetKeyDown(KeyCode.E))
         {
             ChangeCurrentShape(1);
-            print(currentShapeIndex);
         }
-        if (Input.GetKeyDown(KeyCode.Q) && currentShapeIndex > 0)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             ChangeCurrentShape(-1);
-            print(currentShapeIndex);
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
             ShiftShape(currentShapeIndex);
         }
     }
+
     public void ChangeCurrentShape(int direction)
     {
         currentShapeIndex += direction;
+        currentShapeIndex = Mathf.Clamp(currentShapeIndex, 0, shapes.Length - 1); // Prevent out-of-bounds
         changeShape.Invoke();
     }
-    public void ShiftShape(int shape)
+
+    public void ShiftShape(int shapeIndex)
     {
-/*        myCollider.offset = shapes[shape].colliderOffset;
-        myCollider.size = shapes[shape].colliderSize;*/
-        sr.sprite = shapes[shape].sprite;
-        animator.runtimeAnimatorController = shapes[shape].animatorController;
+        if (currentActiveShape == shapeIndex) return; // Prevent redundant transformations
+
+        GameManager.Instance.ChangeState(shapes[shapeIndex]); // Update GameManager state
+        ToggleShape(shapeIndex); // Enable the new shape and disable the others
+        currentActiveShape = shapeIndex;
     }
 
+    private void ToggleShape(int activeIndex)
+    {
+        for (int i = 0; i < shapeObjects.Length; i++)
+        {
+            shapeObjects[i].SetActive(i == activeIndex); // Activate selected shape, deactivate others
+        }
+    }
 }
