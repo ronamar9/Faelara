@@ -2027,30 +2027,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Human
       objectReference: {fileID: 0}
-    - target: {fileID: 4648561917279573759, guid: a6826f7967017474ca0bb815415b5a06, type: 3}
-      propertyPath: shape
-      value: 
-      objectReference: {fileID: 11400000, guid: a59ed1ee726d2414587d751b9c59029a, type: 2}
-    - target: {fileID: 5606315115219287721, guid: a6826f7967017474ca0bb815415b5a06, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 192111598, guid: 9eaaf43dbe3e90542a8442479b647a6e, type: 3}
-    - target: {fileID: 6001579394654928471, guid: a6826f7967017474ca0bb815415b5a06, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6368292522090415121, guid: a6826f7967017474ca0bb815415b5a06, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 2.71875
-      objectReference: {fileID: 0}
-    - target: {fileID: 6368292522090415121, guid: a6826f7967017474ca0bb815415b5a06, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.8125
-      objectReference: {fileID: 0}
-    - target: {fileID: 7481579600344417812, guid: a6826f7967017474ca0bb815415b5a06, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8267652605234258009, guid: a6826f7967017474ca0bb815415b5a06, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.402803
@@ -2091,12 +2067,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9163846208547527781, guid: a6826f7967017474ca0bb815415b5a06, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2512,10 +2483,6 @@ PrefabInstance:
     - target: {fileID: 3188544286262670372, guid: eac12c0005e296e4ba6dac71e0066ec1, type: 3}
       propertyPath: m_Name
       value: Bear
-      objectReference: {fileID: 0}
-    - target: {fileID: 3188544286262670372, guid: eac12c0005e296e4ba6dac71e0066ec1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6014594706238119395, guid: eac12c0005e296e4ba6dac71e0066ec1, type: 3}
       propertyPath: m_LocalPosition.x
