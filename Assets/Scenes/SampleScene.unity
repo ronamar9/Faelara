@@ -2480,9 +2480,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1163559994}
     m_Modifications:
+    - target: {fileID: 3149660896727173403, guid: eac12c0005e296e4ba6dac71e0066ec1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3188544286262670372, guid: eac12c0005e296e4ba6dac71e0066ec1, type: 3}
       propertyPath: m_Name
       value: Bear
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188544286262670372, guid: eac12c0005e296e4ba6dac71e0066ec1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6014594706238119395, guid: eac12c0005e296e4ba6dac71e0066ec1, type: 3}
       propertyPath: m_LocalPosition.x
