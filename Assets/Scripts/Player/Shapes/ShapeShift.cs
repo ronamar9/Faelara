@@ -6,14 +6,22 @@ public class ShapeShift : MonoBehaviour
     public int currentShapeIndex;
     public int currentActiveShape;
     public UnityEvent changeShape;
-    public ShapeType[] shapes = new ShapeType[5];
+
+    public GameObject defaultShape;
+    public ShapeType[] shapes;
     public GameObject[] shapeObjects;
+
+    private Vector3 lastPosition;
+    private PlayerController playerController; // Reference to PlayerController
 
     private void Start()
     {
-        currentShapeIndex = 0;
-        currentActiveShape = currentShapeIndex;
+        playerController = GetComponent<PlayerController>(); // Find PlayerController
 
+        currentShapeIndex = 0;
+        currentActiveShape = -1;
+
+        lastPosition = defaultShape.transform.position;
         ToggleShape(currentActiveShape);
     }
 
@@ -44,16 +52,44 @@ public class ShapeShift : MonoBehaviour
     {
         if (currentActiveShape == shapeIndex) return;
 
+        lastPosition = defaultShape.activeSelf ? defaultShape.transform.position : shapeObjects[currentActiveShape].transform.position;
+
         GameManager.Instance.ChangeState(shapes[shapeIndex]);
         ToggleShape(shapeIndex);
         currentActiveShape = shapeIndex;
+
+        // Update the player's collision reference
+        playerController.UpdateCollisionComponent(shapeObjects[currentActiveShape].GetComponent<CollisionComponent>());
     }
 
     private void ToggleShape(int activeIndex)
     {
-        for (int i = 0; i < shapeObjects.Length; i++)
+        if (activeIndex == -1)
         {
-            shapeObjects[i].SetActive(i == activeIndex);
+            defaultShape.SetActive(true);
+            defaultShape.transform.position = lastPosition;
+
+            foreach (GameObject shape in shapeObjects)
+            {
+                shape.SetActive(false);
+            }
+
+            playerController.UpdateCollisionComponent(defaultShape.GetComponent<CollisionComponent>());
+        }
+        else
+        {
+            defaultShape.SetActive(false);
+
+            for (int i = 0; i < shapeObjects.Length; i++)
+            {
+                shapeObjects[i].SetActive(i == activeIndex);
+                if (shapeObjects[i].activeSelf)
+                {
+                    shapeObjects[i].transform.position = lastPosition;
+                }
+            }
+
+            playerController.UpdateCollisionComponent(shapeObjects[activeIndex].GetComponent<CollisionComponent>());
         }
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -6,41 +7,30 @@ public class PlayerController : MonoBehaviour
     private CollisionComponent collisionComponent;
     private ShapeShift shapeShiftComponent;
     public Stats mana;
-
+    public Slider manaBar;
 
     private void Start()
     {
-        movementComponent = GetComponent<MovementComponent>();
-        collisionComponent = GetComponent<CollisionComponent>();
+        movementComponent = GetComponentInChildren<MovementComponent>();
         shapeShiftComponent = GetComponent<ShapeShift>();
-        mana = new Stats("Mana", 100f);
-        Debug.Log(mana.statName + ": " + mana.maxAmount);    }
+        collisionComponent = GetComponentInChildren<CollisionComponent>();
+
+        mana = new Stats("Mana", 100f, 50f);
+        manaBar.maxValue = mana.maxAmount;
+        manaBar.value = mana.currentAmount;
+    }
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
-        {
-            movementComponent.Move(Input.GetAxisRaw("Horizontal"));
-        }
-
-        if (collisionComponent.onGround)
-        {
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                movementComponent.Jump();
-            }
-        }
         if (mana.currentAmount < mana.maxAmount)
         {
             mana.RegenerateStat();
+            manaBar.value = mana.currentAmount;
         }
-
-/*        if (1 == 1)
-        {
-            mana.Modify(-1);
-            print(mana.currentAmount);
-        }*/
     }
 
-
+    public void UpdateCollisionComponent(CollisionComponent newCollision)
+    {
+        collisionComponent = newCollision;
+    }
 }
