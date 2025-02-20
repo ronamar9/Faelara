@@ -23,6 +23,7 @@ public class MovementComponent : MonoBehaviour
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
         {
             Move(Input.GetAxisRaw("Horizontal"));
+            animator.SetFloat("speed", 1);
         }
 
         if (collisionComponent.onGround && !isFlying)
@@ -45,10 +46,9 @@ public class MovementComponent : MonoBehaviour
 
     public void Move(float direction)
     {
-        rb.velocity += new Vector2 (direction, 0) * moveSpeed / 100;
+        float clampedSpeed = Mathf.Clamp(direction * moveSpeed, direction, direction * 20);
+        rb.velocity = new Vector2(clampedSpeed, rb.velocity.y) ;
         sr.flipX = direction < 0;
-        animator.SetFloat("speed", direction);
-
     }
     public void Jump()
     {
