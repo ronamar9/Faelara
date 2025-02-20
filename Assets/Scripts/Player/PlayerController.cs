@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     private ShapeShift shapeShiftComponent;
     public Stats mana;
     public Slider manaBar;
-
     private void Start()
     {
         movementComponent = GetComponentInChildren<MovementComponent>();

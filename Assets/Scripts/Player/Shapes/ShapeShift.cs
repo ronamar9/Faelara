@@ -12,11 +12,13 @@ public class ShapeShift : MonoBehaviour
     public GameObject[] shapeObjects;
 
     private Vector3 lastPosition;
-    private PlayerController playerController; // Reference to PlayerController
+    private PlayerController playerController;
+    private CameraFollow cameraFollow; // Reference to CameraFollow script
 
     private void Start()
     {
-        playerController = GetComponent<PlayerController>(); // Find PlayerController
+        playerController = GetComponent<PlayerController>();
+        cameraFollow = Camera.main.GetComponent<CameraFollow>(); // Get the main camera follow script
 
         currentShapeIndex = 0;
         currentActiveShape = -1;
@@ -60,6 +62,9 @@ public class ShapeShift : MonoBehaviour
 
         // Update the player's collision reference
         playerController.UpdateCollisionComponent(shapeObjects[currentActiveShape].GetComponent<CollisionComponent>());
+
+        // Update the camera target
+        cameraFollow.UpdateTarget(shapeObjects[currentActiveShape].transform);
     }
 
     private void ToggleShape(int activeIndex)
@@ -75,6 +80,7 @@ public class ShapeShift : MonoBehaviour
             }
 
             playerController.UpdateCollisionComponent(defaultShape.GetComponent<CollisionComponent>());
+            cameraFollow.UpdateTarget(defaultShape.transform); // Follow default shape
         }
         else
         {
@@ -89,7 +95,7 @@ public class ShapeShift : MonoBehaviour
                 }
             }
 
-            playerController.UpdateCollisionComponent(shapeObjects[activeIndex].GetComponent<CollisionComponent>());
+            cameraFollow.UpdateTarget(shapeObjects[activeIndex].transform); // Update camera to follow new shape
         }
     }
 }
