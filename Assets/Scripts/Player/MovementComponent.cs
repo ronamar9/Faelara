@@ -24,18 +24,24 @@ public class MovementComponent : MonoBehaviour
         {
             Move(Input.GetAxisRaw("Horizontal"));
             animator.SetFloat("speed", 1);
+            animator.SetBool("moving", true); // fix animation idle to walk condition - valery
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+            animator.SetBool("moving", false); // fix animation walk to idle condition - valery
         }
 
         if (collisionComponent.onGround && !isFlying)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
             }
         }
         if (isFlying)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKey(KeyCode.Space))
             {
                 Fly();
             }
@@ -46,16 +52,19 @@ public class MovementComponent : MonoBehaviour
 
     public void Move(float direction)
     {
-        float clampedSpeed = Mathf.Clamp(direction * moveSpeed, direction, direction * 20);
-        rb.velocity = new Vector2(clampedSpeed, rb.velocity.y) ;
+       // float clampedSpeed = Mathf.Clamp(direction * moveSpeed, direction, direction * 20);
+       // rb.velocity = new Vector2(clampedSpeed, rb.velocity.y) ;
+        rb.velocity = new Vector2(direction * moveSpeed, rb.velocity.y);
         sr.flipX = direction < 0;
     }
     public void Jump()
     {
-        rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode2D.Impulse);
+        //rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode2D.Impulse);
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse); //more readable - valery
     }
     public void Fly()
     {
-        rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode2D.Impulse);
+        //rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode2D.Impulse);
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce); // changed to velocity - valery
     }
 }
