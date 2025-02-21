@@ -41,7 +41,7 @@ public class MovementComponent : MonoBehaviour
             }
         }
 
-            animator.SetBool("isJumping", !collisionComponent.onGround);
+            animator.SetBool("inAir", !collisionComponent.onGround);
     }
 
     public void Move(float direction)

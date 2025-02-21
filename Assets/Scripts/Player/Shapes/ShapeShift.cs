@@ -15,6 +15,8 @@ public class ShapeShift : MonoBehaviour
     private PlayerController playerController;
     private CameraFollow cameraFollow; // Reference to CameraFollow script
 
+    [SerializeField] private GameObject shapeShiftEffect;
+
     private void Start()
     {
         playerController = GetComponent<PlayerController>();
@@ -65,6 +67,8 @@ public class ShapeShift : MonoBehaviour
 
         // Update the camera target
         cameraFollow.UpdateTarget(shapeObjects[currentActiveShape].transform);
+
+        Instantiate(shapeShiftEffect);
     }
 
     private void ToggleShape(int activeIndex)
