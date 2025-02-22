@@ -23,7 +23,6 @@ public class MovementComponent : MonoBehaviour
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
         {
             Move(Input.GetAxisRaw("Horizontal"));
-            animator.SetFloat("speed", 1);
             animator.SetBool("moving", true); // fix animation idle to walk condition - valery
         }
         else
