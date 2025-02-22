@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8789573555042007261}
   - component: {fileID: 7345509356342359437}
-  - component: {fileID: 5258235741185473694}
   - component: {fileID: 9000343661681394323}
+  - component: {fileID: 5378083542960194912}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Rock
@@ -75,9 +75,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 133810481, guid: c357c485605c99a48aba4fb1e58e7608, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -86,8 +86,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &5258235741185473694
-CircleCollider2D:
+--- !u!114 &9000343661681394323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5056417638672821978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c41860c27fcd6794c982de4868e075ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 133810481, guid: c357c485605c99a48aba4fb1e58e7608, type: 3}
+  - {fileID: -700693827, guid: c357c485605c99a48aba4fb1e58e7608, type: 3}
+  - {fileID: -1812894848, guid: c357c485605c99a48aba4fb1e58e7608, type: 3}
+  - {fileID: 1041948727, guid: c357c485605c99a48aba4fb1e58e7608, type: 3}
+--- !u!70 &5378083542960194912
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -118,18 +135,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &9000343661681394323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5056417638672821978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c41860c27fcd6794c982de4868e075ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Offset: {x: -0.04, y: 0}
+  m_Size: {x: 2.0000002, y: 1.0625001}
+  m_Direction: 1
