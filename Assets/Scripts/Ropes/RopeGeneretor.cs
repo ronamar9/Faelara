@@ -9,7 +9,7 @@ public class RopeGeneretor : MonoBehaviour
     private Rigidbody2D rb;
     private Rigidbody2D ropeRb;
     private HingeJoint2D ropeHingeJoint;
-    [Range(1, 10)] public int segmentsAmount;
+    [Range(1, 20)] public int segmentsAmount;
 
     private void Start()
     {

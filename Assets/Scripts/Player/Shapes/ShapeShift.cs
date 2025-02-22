@@ -13,7 +13,7 @@ public class ShapeShift : MonoBehaviour
 
     private Vector3 lastPosition;
     private PlayerController playerController;
-    private CameraFollow cameraFollow; // Reference to CameraFollow script
+    private CameraFollow cameraFollow;
 
     [SerializeField] private GameObject shapeShiftEffect;
 
@@ -22,7 +22,7 @@ public class ShapeShift : MonoBehaviour
     private void Start()
     {
         playerController = GetComponent<PlayerController>();
-        cameraFollow = Camera.main.GetComponent<CameraFollow>(); // Get the main camera follow script
+        cameraFollow = Camera.main.GetComponent<CameraFollow>();
 
         currentShapeIndex = 0;
         currentActiveShape = -1;
@@ -43,8 +43,16 @@ public class ShapeShift : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
-            ShiftShape(currentShapeIndex);
+            if (currentShapeIndex == -1)
+            {
+                ShiftShape(-1);
+            }
+            else
+            {
+                ShiftShape(currentShapeIndex);
+            }
         }
+
     }
 
     public void ChangeCurrentShape(int direction)
