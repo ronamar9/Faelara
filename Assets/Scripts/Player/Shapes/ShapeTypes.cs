@@ -1,4 +1,4 @@
-public enum ShapeType
+public enum ShapeTypes
 {
     Human,
     Mouse,

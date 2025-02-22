@@ -1442,6 +1442,7 @@ GameObject:
   - component: {fileID: 730147736}
   - component: {fileID: 730147739}
   - component: {fileID: 730147738}
+  - component: {fileID: 730147740}
   - component: {fileID: 730147737}
   m_Layer: 5
   m_Name: MonkeyIcon
@@ -1551,6 +1552,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730147735}
   m_CullTransparentMesh: 1
+--- !u!114 &730147740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730147735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ddc3622681d7eb42a829192eac518ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeColor: {r: 0, g: 0, b: 0, a: 1}
+  inactiveColor: {r: 1, g: 0, b: 0, a: 1}
+  iconsGameObjects: []
 --- !u!1 &774220270 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3967698838162862077, guid: 34b11f55ba1f6e54d8e105a4fefc7fa2, type: 3}
@@ -1567,6 +1583,7 @@ GameObject:
   - component: {fileID: 776696603}
   - component: {fileID: 776696602}
   - component: {fileID: 776696605}
+  - component: {fileID: 776696606}
   - component: {fileID: 776696604}
   m_Layer: 0
   m_Name: GameManager
@@ -1710,6 +1727,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a3a86ec5bce3534d93fb763a5ba63cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &776696606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776696601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ddc3622681d7eb42a829192eac518ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeColor: {r: 1, g: 1, b: 1, a: 1}
+  inactiveColor: {r: 0.4188679, g: 0.4188679, b: 0.4188679, a: 1}
+  iconsGameObjects:
+  - {fileID: 1226704515}
+  - {fileID: 1399182008}
+  - {fileID: 730147735}
+  - {fileID: 1878186070}
 --- !u!1001 &792050763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2124,9 +2160,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentShapeIndex: 0
   currentActiveShape: 0
-  changeShape:
-    m_PersistentCalls:
-      m_Calls: []
   defaultShape: {fileID: 1745173681}
   shapes: 01000000020000000400000003000000
   shapeObjects:
@@ -2135,6 +2168,63 @@ MonoBehaviour:
   - {fileID: 146504387}
   - {fileID: 774220270}
   shapeShiftEffect: {fileID: 2227318127681722052, guid: 8ed566a2057a59346b99543b5fe63233, type: 3}
+  changeShape:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 776696606}
+        m_TargetAssemblyTypeName: IconSwap, Assembly-CSharp
+        m_MethodName: SetActive
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 776696606}
+        m_TargetAssemblyTypeName: IconSwap, Assembly-CSharp
+        m_MethodName: SetActive
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 776696606}
+        m_TargetAssemblyTypeName: IconSwap, Assembly-CSharp
+        m_MethodName: SetActive
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 776696606}
+        m_TargetAssemblyTypeName: IconSwap, Assembly-CSharp
+        m_MethodName: SetActive
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1171158358
 GameObject:
   m_ObjectHideFlags: 0
@@ -2309,10 +2399,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3989068589388563186, guid: b29648a6f439a294b840811cb203556b, type: 3}
-      propertyPath: moveSpeed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 7625524620621325481, guid: b29648a6f439a294b840811cb203556b, type: 3}
       propertyPath: m_Name
       value: Monkey
@@ -2346,6 +2432,7 @@ GameObject:
   - component: {fileID: 1226704516}
   - component: {fileID: 1226704519}
   - component: {fileID: 1226704518}
+  - component: {fileID: 1226704521}
   - component: {fileID: 1226704517}
   - component: {fileID: 1226704520}
   m_Layer: 5
@@ -2473,6 +2560,21 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &1226704521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226704515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ddc3622681d7eb42a829192eac518ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeColor: {r: 0, g: 0, b: 0, a: 1}
+  inactiveColor: {r: 1, g: 0, b: 0, a: 1}
+  iconsGameObjects: []
 --- !u!1 &1271765140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2677,6 +2779,7 @@ GameObject:
   - component: {fileID: 1399182009}
   - component: {fileID: 1399182012}
   - component: {fileID: 1399182011}
+  - component: {fileID: 1399182013}
   - component: {fileID: 1399182010}
   m_Layer: 5
   m_Name: BearIcon
@@ -2786,6 +2889,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399182008}
   m_CullTransparentMesh: 1
+--- !u!114 &1399182013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399182008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ddc3622681d7eb42a829192eac518ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeColor: {r: 0, g: 0, b: 0, a: 1}
+  inactiveColor: {r: 1, g: 0, b: 0, a: 1}
+  iconsGameObjects: []
 --- !u!1001 &1487719879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8498,6 +8616,7 @@ GameObject:
   - component: {fileID: 1878186071}
   - component: {fileID: 1878186074}
   - component: {fileID: 1878186073}
+  - component: {fileID: 1878186075}
   - component: {fileID: 1878186072}
   m_Layer: 5
   m_Name: OwlIcon
@@ -8607,6 +8726,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878186070}
   m_CullTransparentMesh: 1
+--- !u!114 &1878186075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878186070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ddc3622681d7eb42a829192eac518ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeColor: {r: 0, g: 0, b: 0, a: 1}
+  inactiveColor: {r: 1, g: 0, b: 0, a: 1}
+  iconsGameObjects: []
 --- !u!1 &2017034286 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5606916242570834501, guid: 447e06c14a70c144e8642fd051d080ed, type: 3}

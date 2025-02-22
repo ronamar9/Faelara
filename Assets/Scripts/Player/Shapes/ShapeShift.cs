@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -5,10 +6,9 @@ public class ShapeShift : MonoBehaviour
 {
     public int currentShapeIndex;
     public int currentActiveShape;
-    public UnityEvent changeShape;
 
     public GameObject defaultShape;
-    public ShapeType[] shapes;
+    public ShapeTypes[] shapes;
     public GameObject[] shapeObjects;
 
     private Vector3 lastPosition;
@@ -16,6 +16,8 @@ public class ShapeShift : MonoBehaviour
     private CameraFollow cameraFollow; // Reference to CameraFollow script
 
     [SerializeField] private GameObject shapeShiftEffect;
+
+    public UnityEvent[] changeShape;
 
     private void Start()
     {
@@ -49,7 +51,7 @@ public class ShapeShift : MonoBehaviour
     {
         currentShapeIndex += direction;
         currentShapeIndex = Mathf.Clamp(currentShapeIndex, 0, shapes.Length - 1);
-        changeShape.Invoke();
+        changeShape[currentShapeIndex].Invoke();
     }
 
     public void ShiftShape(int shapeIndex)
@@ -66,7 +68,7 @@ public class ShapeShift : MonoBehaviour
 
         cameraFollow.UpdateTarget(shapeObjects[currentActiveShape].transform);
 
-        Instantiate(shapeShiftEffect, transform);
+        Instantiate(shapeShiftEffect, shapeObjects[currentActiveShape].transform);
     }
 
     private void ToggleShape(int activeIndex)
