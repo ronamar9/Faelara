@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private ShapeShift shapeShiftComponent;
     public Stats mana;
     public Slider manaBar;
+    private WeaponType WeaponType;
     private void Start()
     {
         movementComponent = GetComponentInChildren<MovementComponent>();
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
         collisionComponent = GetComponentInChildren<CollisionComponent>();
 
         mana = new Stats("Mana", 100f, 50f);
+        WeaponType = WeaponType.Unarmed;
         manaBar.maxValue = mana.maxAmount;
         manaBar.value = mana.currentAmount;
     }
