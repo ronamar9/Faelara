@@ -62,13 +62,11 @@ public class ShapeShift : MonoBehaviour
         ToggleShape(shapeIndex);
         currentActiveShape = shapeIndex;
 
-        // Update the player's collision reference
         playerController.UpdateCollisionComponent(shapeObjects[currentActiveShape].GetComponent<CollisionComponent>());
 
-        // Update the camera target
         cameraFollow.UpdateTarget(shapeObjects[currentActiveShape].transform);
 
-        Instantiate(shapeShiftEffect);
+        Instantiate(shapeShiftEffect, transform);
     }
 
     private void ToggleShape(int activeIndex)
@@ -84,7 +82,7 @@ public class ShapeShift : MonoBehaviour
             }
 
             playerController.UpdateCollisionComponent(defaultShape.GetComponent<CollisionComponent>());
-            cameraFollow.UpdateTarget(defaultShape.transform); // Follow default shape
+            cameraFollow.UpdateTarget(defaultShape.transform);
         }
         else
         {
@@ -99,7 +97,7 @@ public class ShapeShift : MonoBehaviour
                 }
             }
 
-            cameraFollow.UpdateTarget(shapeObjects[activeIndex].transform); // Update camera to follow new shape
+            cameraFollow.UpdateTarget(shapeObjects[activeIndex].transform);
         }
     }
 }

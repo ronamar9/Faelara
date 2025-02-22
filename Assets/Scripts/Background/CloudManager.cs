@@ -19,7 +19,7 @@ public class CloudManager : MonoBehaviour
         {
             float waitTime = Random.Range(4f, 8f);
             float startX = -20;
-            float desiredY = Random.Range(2, 5);
+            float desiredY = Random.Range(2, 6);
             float desiredZ = 50;
 
             yield return new WaitForSeconds(waitTime);
