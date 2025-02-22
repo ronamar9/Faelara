@@ -34,14 +34,14 @@ public class MovementComponent : MonoBehaviour
 
         if (collisionComponent.onGround && !isFlying)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
             {
                 Jump();
             }
         }
         if (isFlying)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
             {
                 Fly();
             }
