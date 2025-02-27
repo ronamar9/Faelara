@@ -41,8 +41,6 @@ public class RopeController : MonoBehaviour
         playerRb.freezeRotation = true;
         playerRef.transform.rotation = Quaternion.identity;
 
-
-
         if (Input.GetKeyUp(KeyCode.W))
         {
             JumpFromRope(playerRb.velocity.x);
@@ -59,7 +57,7 @@ public class RopeController : MonoBehaviour
     public void JumpFromRope(float direction)
     {
         //playerRb.position = new Vector2(rb.transform.position.x + direction, playerRb.position.y * 2);
-        playerRb.AddForce(new Vector2(direction * 3, 3), ForceMode2D.Impulse);
+        playerRb.AddForce(new Vector2(direction * 10, 3), ForceMode2D.Impulse);
         isTouchingRope = false;
     }
 

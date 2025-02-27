@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,7 @@ public class IconSwap : MonoBehaviour
 
     private void Start()
     {
-        SetInactive();
+        SetActive(0);
     }
     public void SetActive(int index)
     {

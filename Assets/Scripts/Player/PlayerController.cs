@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     private ShapeShift shapeShiftComponent;
     public Stats mana;
     public Slider manaBar;
-    private WeaponType WeaponType;
+    public bool Shapeshifting;
     private void Start()
     {
         movementComponent = GetComponentInChildren<MovementComponent>();
@@ -16,22 +16,25 @@ public class PlayerController : MonoBehaviour
         collisionComponent = GetComponentInChildren<CollisionComponent>();
 
         mana = new Stats("Mana", 100f, 50f);
-        WeaponType = WeaponType.Unarmed;
         manaBar.maxValue = mana.maxAmount;
         manaBar.value = mana.currentAmount;
     }
 
     private void Update()
     {
-        if (mana.currentAmount < mana.maxAmount)
+        if (!Shapeshifting)
         {
-            mana.RegenerateStat();
+            if (mana.currentAmount < mana.maxAmount)
+            {
+                mana.RegenerateStat();
+                manaBar.value = mana.currentAmount;
+            }
+        }
+        else
+        {
+            mana.Modify(-.01f);
             manaBar.value = mana.currentAmount;
         }
     }
 
-    public void UpdateCollisionComponent(CollisionComponent newCollision)
-    {
-        collisionComponent = newCollision;
-    }
 }

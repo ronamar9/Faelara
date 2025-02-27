@@ -7,7 +7,7 @@ public class ShapeShift : MonoBehaviour
     public int currentShapeIndex;
     public int currentActiveShape;
 
-    public GameObject defaultShape;
+    private int defaultShapeIndex = 0;
     public ShapeTypes[] shapes;
     public GameObject[] shapeObjects;
 
@@ -24,10 +24,10 @@ public class ShapeShift : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         cameraFollow = Camera.main.GetComponent<CameraFollow>();
 
-        currentShapeIndex = 0;
-        currentActiveShape = -1;
+        currentShapeIndex = defaultShapeIndex;
+        currentActiveShape = defaultShapeIndex;
 
-        lastPosition = defaultShape.transform.position;
+        lastPosition = shapeObjects[defaultShapeIndex].transform.position;
         ToggleShape(currentActiveShape);
     }
 
@@ -43,14 +43,19 @@ public class ShapeShift : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (currentShapeIndex == -1)
+            if (currentShapeIndex == defaultShapeIndex)
             {
-                ShiftShape(-1);
+                ShiftShape(0);
             }
             else
             {
                 ShiftShape(currentShapeIndex);
             }
+        }
+
+        if (playerController.mana.currentAmount <= 0 || Input.GetKeyDown(KeyCode.Tab))
+        {
+            ShiftShape(defaultShapeIndex);
         }
 
     }
@@ -66,13 +71,11 @@ public class ShapeShift : MonoBehaviour
     {
         if (currentActiveShape == shapeIndex) return;
 
-        lastPosition = defaultShape.activeSelf ? defaultShape.transform.position : shapeObjects[currentActiveShape].transform.position;
+        lastPosition = shapeObjects[defaultShapeIndex].activeSelf ? shapeObjects[defaultShapeIndex].transform.position : shapeObjects[currentActiveShape].transform.position;
 
         GameManager.Instance.ChangeState(shapes[shapeIndex]);
         ToggleShape(shapeIndex);
         currentActiveShape = shapeIndex;
-
-        playerController.UpdateCollisionComponent(shapeObjects[currentActiveShape].GetComponent<CollisionComponent>());
 
         cameraFollow.UpdateTarget(shapeObjects[currentActiveShape].transform);
 
@@ -81,33 +84,22 @@ public class ShapeShift : MonoBehaviour
 
     private void ToggleShape(int activeIndex)
     {
-        if (activeIndex == -1)
+        for (int i = 0; i < shapeObjects.Length; i++)
         {
-            defaultShape.SetActive(true);
-            defaultShape.transform.position = lastPosition;
+            shapeObjects[i].SetActive(i == activeIndex);
 
-            foreach (GameObject shape in shapeObjects)
+            if (shapeObjects[i].activeSelf)
             {
-                shape.SetActive(false);
+                shapeObjects[i].transform.position = lastPosition;
             }
-
-            playerController.UpdateCollisionComponent(defaultShape.GetComponent<CollisionComponent>());
-            cameraFollow.UpdateTarget(defaultShape.transform);
         }
-        else
+
+        if (activeIndex == defaultShapeIndex)
         {
-            defaultShape.SetActive(false);
-
-            for (int i = 0; i < shapeObjects.Length; i++)
-            {
-                shapeObjects[i].SetActive(i == activeIndex);
-                if (shapeObjects[i].activeSelf)
-                {
-                    shapeObjects[i].transform.position = lastPosition;
-                }
-            }
-
-            cameraFollow.UpdateTarget(shapeObjects[activeIndex].transform);
+            shapeObjects[defaultShapeIndex].SetActive(true);
         }
+
+        cameraFollow.UpdateTarget(shapeObjects[activeIndex].transform);
     }
+
 }

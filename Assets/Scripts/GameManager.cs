@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     private ShapeTypes currentShape;
+    public PlayerController playerController;
 
     private void Awake()
     {
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
         else
             Destroy(gameObject);
     }
+
 
     public void ChangeState(ShapeTypes newShape)
     {
@@ -29,18 +31,23 @@ public class GameManager : MonoBehaviour
         {
             case ShapeTypes.Human:
                 Debug.Log("Normal movement enabled.");
+                playerController.Shapeshifting = false;
                 break;
             case ShapeTypes.Mouse:
                 Debug.Log("Sneak ability activated.");
+                playerController.Shapeshifting = true;
                 break;
             case ShapeTypes.Bear:
                 Debug.Log("Bear strength enabled.");
+                playerController.Shapeshifting = true;
                 break;
             case ShapeTypes.Owl:
                 Debug.Log("Flight mode activated.");
+                playerController.Shapeshifting = true;
                 break;
             case ShapeTypes.Monkey:
                 Debug.Log("Rope jumping enabled.");
+                playerController.Shapeshifting = true;
                 break;
         }
     }
