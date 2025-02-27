@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
         shapeShiftComponent = GetComponent<ShapeShift>();
         collisionComponent = GetComponentInChildren<CollisionComponent>();
 
-        mana = new Stats("Mana", 100f, 50f);
+        mana = new Stats("Mana", 100f, 80f);
         manaBar.maxValue = mana.maxAmount;
         manaBar.value = mana.currentAmount;
     }
