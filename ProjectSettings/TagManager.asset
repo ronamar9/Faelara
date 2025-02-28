@@ -9,6 +9,8 @@ TagManager:
   - Monkey
   - Bear
   - Rock
+  - CheckPoint
+  - OutOfBounds
   layers:
   - Default
   - TransparentFX
