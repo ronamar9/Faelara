@@ -23,7 +23,6 @@ public class CheckPointsManager : MonoBehaviour
     public Vector2 SetCheckPoint(Vector2 checkPoint)
     {
         currentCheckPoint = checkPoint;
-        
         return checkPoint;
     }
 

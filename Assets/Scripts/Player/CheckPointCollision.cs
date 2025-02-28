@@ -32,9 +32,6 @@ public class CheckPointCollision : MonoBehaviour
         if (collider.gameObject.CompareTag("CheckPoint"))
         {
             cpm.SetCheckPoint(transform.position);
-            Animator animator = collider.GetComponent<Animator>();
-            animator.SetBool("isChecked", true);
-            
         }
     }
     /// <summary>
