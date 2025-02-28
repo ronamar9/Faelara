@@ -1215,7 +1215,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547396013}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
 --- !u!1001 &572947420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1285,8 +1284,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b79f4f13e107bbf4ba3027607e49efc5, type: 3}
-=======
->>>>>>> parent of 5a95da6 (Faelara UI update)
 --- !u!1 &590068045
 GameObject:
   m_ObjectHideFlags: 0
