@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 805998152713913830}
   - component: {fileID: 8695825695284058434}
   - component: {fileID: 5519481122719286230}
+  - component: {fileID: 2548650266895103756}
   m_Layer: 0
   m_Name: ShapeShift_Effect
   m_TagString: Untagged
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -125363800, guid: ef86a4e1bd39b3240a0a44443b034188, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -106,3 +107,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2548650266895103756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2227318127681722052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df04bf2d423ac52488a5aee3aea568f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
