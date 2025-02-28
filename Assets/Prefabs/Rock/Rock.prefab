@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 133810481, guid: c357c485605c99a48aba4fb1e58e7608, type: 3}
+  m_Sprite: {fileID: 1572487095, guid: 0ac834627a806f54a9f4c6f4bf19db7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 1.0625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 133810481, guid: c357c485605c99a48aba4fb1e58e7608, type: 3}
-  - {fileID: -700693827, guid: c357c485605c99a48aba4fb1e58e7608, type: 3}
-  - {fileID: -1812894848, guid: c357c485605c99a48aba4fb1e58e7608, type: 3}
-  - {fileID: 1041948727, guid: c357c485605c99a48aba4fb1e58e7608, type: 3}
+  - {fileID: 1572487095, guid: 0ac834627a806f54a9f4c6f4bf19db7e, type: 3}
+  - {fileID: -1845635384, guid: 0ac834627a806f54a9f4c6f4bf19db7e, type: 3}
+  - {fileID: -455247380, guid: 0ac834627a806f54a9f4c6f4bf19db7e, type: 3}
+  - {fileID: 1165774010, guid: 0ac834627a806f54a9f4c6f4bf19db7e, type: 3}
 --- !u!70 &5378083542960194912
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c357c485605c99a48aba4fb1e58e7608
+guid: 0ac834627a806f54a9f4c6f4bf19db7e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,11 +93,37 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rock-Sheet_0
+      name: Rock-Sheet 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8a9b67d6aeca434885b73464a206ae2
-      internalID: 133810481
+      spriteID: 65f1475d648868c4785c72ab487a6941
+      internalID: 1572487095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rock-Sheet_1
+      name: Rock-Sheet 1_1
       rect:
         serializedVersion: 2
         x: 64
@@ -132,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c4cacbabd96ab54798bd7dc3b98793b
-      internalID: -700693827
+      spriteID: d11522db6d796af42a13ef9c501c2cd4
+      internalID: -1845635384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rock-Sheet_2
+      name: Rock-Sheet 1_2
       rect:
         serializedVersion: 2
         x: 0
@@ -153,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4666e55825145884492548852dd1c8e6
-      internalID: -1812894848
+      spriteID: 42263f698bfc5e6469f7cae4e0dc5c1c
+      internalID: -455247380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rock-Sheet_3
+      name: Rock-Sheet 1_3
       rect:
         serializedVersion: 2
         x: 64
@@ -174,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1d3d0e5ed6e7584d9948a7a61fcd688
-      internalID: 1041948727
+      spriteID: 47faeef6bdaa958479287a4de6615570
+      internalID: 1165774010
       vertices: []
       indices: 
       edges: []
@@ -191,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Rock-Sheet_0: 133810481
-      Rock-Sheet_1: -700693827
-      Rock-Sheet_2: -1812894848
-      Rock-Sheet_3: 1041948727
+      Rock-Sheet 1_0: 1572487095
+      Rock-Sheet 1_1: -1845635384
+      Rock-Sheet 1_2: -455247380
+      Rock-Sheet 1_3: 1165774010
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
