@@ -35,11 +35,25 @@ public class ShapeShift : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            ChangeCurrentShape(1);
+            if (currentShapeIndex == shapes.Length-1)
+            {
+                currentShapeIndex = 0;
+            }
+            else
+            {
+                ChangeCurrentShape(1);
+            }
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            ChangeCurrentShape(-1);
+            if (currentShapeIndex == 0)
+            {
+                currentShapeIndex = shapes.Length;
+            }
+            else
+            {
+                ChangeCurrentShape(-1);
+            }
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
