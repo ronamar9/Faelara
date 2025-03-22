@@ -51,7 +51,24 @@ public class CollisionComponent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Collectable"))
+        {
+            this.gameObject.GetComponentInParent<PlayerController>().GetEnergy(30);
+            Destroy(collision.gameObject);
+        }
 
+        if (collision.gameObject.CompareTag("Key"))
+        {
+            collision.gameObject.GetComponent<Key>().ToggleHint(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Key"))
+        {
+            collision.gameObject.GetComponent<Key>().ToggleHint(false);
+        }
     }
 
 }

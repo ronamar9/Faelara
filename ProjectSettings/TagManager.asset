@@ -11,6 +11,8 @@ TagManager:
   - Rock
   - CheckPoint
   - OutOfBounds
+  - Collectable
+  - Key
   layers:
   - Default
   - TransparentFX

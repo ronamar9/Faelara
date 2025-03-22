@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
         shapeShiftComponent = GetComponent<ShapeShift>();
         collisionComponent = GetComponentInChildren<CollisionComponent>();
 
-        mana = new Stats("Mana", 100f, 50f);
+        mana = new Stats("Mana", 100f, 70f);
         manaBar.maxValue = mana.maxAmount;
         manaBar.value = mana.currentAmount;
     }
@@ -32,9 +32,15 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            mana.Modify(-.01f);
+            mana.Modify(-.008f);
             manaBar.value = mana.currentAmount;
         }
+    }
+
+    public void GetEnergy(float amount)
+    {
+        mana.Modify(amount);
+        manaBar.value = mana.currentAmount;
     }
 
 }
