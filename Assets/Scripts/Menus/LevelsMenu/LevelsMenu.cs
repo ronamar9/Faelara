@@ -6,6 +6,7 @@ public class LevelsMenu : MonoBehaviour
     [SerializeField] Transform[] levels;
     private int currentLevel;
     private float speed = 5;
+    private const int levelToAdd = 2;
     private void Start()
     {
         currentLevel = 0;
@@ -33,16 +34,16 @@ public class LevelsMenu : MonoBehaviour
     }
     public void MoveToLevel(int direction)
     {
-        if (currentLevel >= 0 && currentLevel < levels.Length - 1)
+        int nextLevel = currentLevel + direction;
+        if (nextLevel >= 0 && nextLevel < levels.Length)
         {
-            currentLevel += direction;
-            print(currentLevel);
+            currentLevel = nextLevel;
         }
     }
 
     private void EnterLevel()
     {
-        SceneManager.LoadScene(currentLevel+2);
+        SceneManager.LoadScene(currentLevel + levelToAdd);
     }
 
 
