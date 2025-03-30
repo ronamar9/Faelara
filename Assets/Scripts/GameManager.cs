@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-
     public void ChangeState(ShapeTypes newShape)
     {
         if (currentShape == newShape) return;

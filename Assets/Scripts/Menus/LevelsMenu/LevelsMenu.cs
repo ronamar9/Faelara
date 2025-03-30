@@ -31,6 +31,10 @@ public class LevelsMenu : MonoBehaviour
             EnterLevel();
         }
 
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
     public void MoveToLevel(int direction)
     {

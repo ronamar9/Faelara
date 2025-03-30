@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -34,6 +35,11 @@ public class PlayerController : MonoBehaviour
         {
             mana.Modify(-.008f);
             manaBar.value = mana.currentAmount;
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(1);
         }
     }
 
